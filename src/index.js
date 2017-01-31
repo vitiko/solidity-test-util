@@ -1,17 +1,20 @@
 const solidityTestUtil = {
 
-  prepareValue: (value) => value && value.toNumber != undefined ? value.toNumber().toString() : value,
+  prepareValue: value => value && value.toNumber != undefined ? value.toNumber().toString() : value,
 
-  prepareArray: (arr) => arr.map(value => solidityTestUtil.prepareValue(value)),
+  prepareArray: arr=> {
+    if (!Array.isArray(arr)) throw new Error('Argument for function "prepareArray" must be array, '+ typeof(arr)+' given');
+    return arr.map(value => solidityTestUtil.prepareValue(value));
+  },
 
-  prepareObject: (obj) =>
+  prepareObject: obj =>
     Object.keys(obj).reduce(
       (preparedObj, key) => Object.assign(preparedObj, {
         [key]: solidityTestUtil.prepareValue(obj[key])
       }), {}
     ),
 
-  getEventLog: (eventListener) =>
+  getEventLog: eventListener =>
     new Promise(
       (resolve, reject) => eventListener.get(
         (error, log) => error ? reject(error) : resolve(log)
@@ -31,7 +34,10 @@ const solidityTestUtil = {
 
     if (error) solidityTestUtil.assertJump(error, message);
     else  assert.notEqual(error, undefined, 'Error need to be thrown: ' + message);
-  }
-}
+  },
+
+
+  EMPTY_ADDRESS: '0x0000000000000000000000000000000000000000'
+};
 
 module.exports = solidityTestUtil;
