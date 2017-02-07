@@ -3,7 +3,7 @@ const solidityTestUtil = {
   prepareValue: value => value && value.toNumber != undefined ? value.toNumber().toString() : value,
 
   prepareArray: arr=> {
-    if (!Array.isArray(arr)) throw new Error('Argument for function "prepareArray" must be array, '+ typeof(arr)+' given');
+    if (!Array.isArray(arr)) throw new Error('Argument for function "prepareArray" must be array, ' + typeof(arr) + ' given');
     return arr.map(value => solidityTestUtil.prepareValue(value));
   },
 
@@ -35,6 +35,15 @@ const solidityTestUtil = {
     if (error) solidityTestUtil.assertJump(error, message);
     else  assert.notEqual(error, undefined, 'Error need to be thrown: ' + message);
   },
+
+
+  evmIncreaseTime: (seconds) => new Promise((resolve, reject) =>
+    web3.currentProvider.sendAsync({
+      jsonrpc: "2.0",
+      method: "evm_increaseTime",
+      params: [seconds],
+      id: new Date().getTime()
+    }, (error, result) => error ? reject(error) : resolve(result.result))),
 
 
   EMPTY_ADDRESS: '0x0000000000000000000000000000000000000000'
