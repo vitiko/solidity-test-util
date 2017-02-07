@@ -1,6 +1,6 @@
 {
     "name": "solidity-test-util",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "utils for testing solidity with truffle framework and mocha",
     "main": "lib/index.js",
     "scripts": {
