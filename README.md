@@ -1,6 +1,8 @@
 # Solidity-test-util
 
-A collection of utility functions for testing ethereum contracts with [truffle framework](https://github.com/Consensys/truffle) and [testrpc](https://github.com/ethereumjs/testrpc)
+A collection of utility functions for testing ethereum contracts with [truffle framework](https://github.com/Consensys/truffle) and [testrpc](https://github.com/ethereumjs/testrpc).
+
+Examples can be found on [Github solidity-test-example project](https://github.com/vitiko/solidity-test-example/blob/master/test/CongressWithTestUtil.js) 
 
 ## getEventLog
  
