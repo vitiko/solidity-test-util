@@ -21,7 +21,7 @@ const solidityTestUtil = {
       )),
 
   assertJump: (error, message = '') => {
-    assert.isAbove(error.message.search('invalid JUMP'), -1, message + ': invalid JUMP error must be returned');
+    assert.isAbove(error.message.search('invalid'), -1, message + ': error must be returned');
   },
 
   assertThrow: async(callback, message = '') => {
