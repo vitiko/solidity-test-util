@@ -2,7 +2,7 @@ const solidityTestUtil = {
 
   prepareValue: value => value && value.toNumber != undefined ? value.toNumber().toString() : value,
 
-  prepareArray: arr=> {
+  prepareArray: arr => {
     if (!Array.isArray(arr)) throw new Error('Argument for function "prepareArray" must be array, ' + typeof(arr) + ' given');
     return arr.map(value => solidityTestUtil.prepareValue(value));
   },
@@ -20,11 +20,18 @@ const solidityTestUtil = {
         (error, log) => error ? reject(error) : resolve(log)
       )),
 
+
+  assertEvent: (result, eventName, args) =>
+    assert.deepEqual(
+      solidityTestUtil.prepareObject(result.logs.find(log => log.event == eventName).args),
+      args
+    ),
+
   assertJump: (error, message = '') => {
     assert.isAbove(error.message.search('invalid'), -1, message + ': error must be returned');
   },
 
-  assertThrow: async(callback, message = '') => {
+  assertThrow: async (callback, message = '') => {
     var error;
     try {
       await callback();
