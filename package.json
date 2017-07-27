@@ -1,6 +1,6 @@
 {
     "name": "solidity-test-util",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "A collection of utility functions for testing ethereum contracts with truffle framework and testrpc",
     "main": "lib/index.js",
     "scripts": {
