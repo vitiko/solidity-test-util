@@ -15,7 +15,7 @@ Examples can be found on [Github solidity-test-example project](https://github.c
  - `Array`  Events
  
  
-##assertThrow
+## assertThrow
 
 **Parameters**
 
@@ -26,7 +26,7 @@ Examples can be found on [Github solidity-test-example project](https://github.c
  - `Boolean` exception throwed
 
 
-##evmIncreaseTime
+## evmIncreaseTime
 
 Jump testrpc forward in time 
 
@@ -40,7 +40,7 @@ Jump testrpc forward in time
  
  
  
- ##prepareValue 
+ ## prepareValue 
    
  Convert `BigNumber` value to `Number` using toNumber() method
    
@@ -52,7 +52,7 @@ Jump testrpc forward in time
    
  - `Mixed` 
   
- ##prepareArray 
+ ## prepareArray 
  
   Convert `BigNumber` array values to `Number` using toNumber() method
     
@@ -64,7 +64,7 @@ Jump testrpc forward in time
     
   - `Array` 
    
- ##prepareObject
+ ## prepareObject
  
   Convert `BigNumber` object values to `Number` using toNumber() method
     
